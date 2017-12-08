@@ -11,6 +11,8 @@ public class TesteCalculadoraDescontos {
 
 	public static void main(String[] args) {
 		
+		CalculadorDeDescontos calculadora = new CalculadorDeDescontos();
+
 		List<Item> itens = new ArrayList<>();
 //		itens.add(new Item("Caderno", 68.90));
 //		itens.add(new Item("Mochila", 200.90));
@@ -21,12 +23,8 @@ public class TesteCalculadoraDescontos {
 		itens.add(new Item("Folha Sulfite", 80.00));
 		
 		Orcamento orcamento = new Orcamento(itens);
-		
-		CalculadorDeDescontos calculadora = new CalculadorDeDescontos();
 		double desconto = calculadora.calcula(orcamento);
 		
 		System.out.println("Valor total sem desconto: " + orcamento.getValor() + ". Valor do desconto: " + desconto);
-		
 	}
-	
 }

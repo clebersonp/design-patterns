@@ -11,7 +11,12 @@ public class DescontoParaMaisDeQuinhentosReais implements Desconto {
 		if (orcamento.getValor() > 500) {
 			return orcamento.getValor() * 0.05;
 		}
-		return this.proximoDesconto.calcula(orcamento);
+		
+		if (hasProximoDesconto()) {
+			return this.proximoDesconto.calcula(orcamento);
+		}
+		
+		return 0;
 	}
 
 	@Override
@@ -20,4 +25,8 @@ public class DescontoParaMaisDeQuinhentosReais implements Desconto {
 		
 	}
 
+	@Override
+	public boolean hasProximoDesconto() {
+		return this.proximoDesconto != null;
+	}
 }

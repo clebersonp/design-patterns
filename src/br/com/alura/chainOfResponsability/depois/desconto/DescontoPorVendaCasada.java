@@ -12,7 +12,10 @@ public class DescontoPorVendaCasada implements Desconto {
 				&& existe("caneta", orcamento)) {
 			return orcamento.getValor() * 0.05;
 		}
-		return proximoDesconto.calcula(orcamento);
+		if (hasProximoDesconto()) {
+			return proximoDesconto.calcula(orcamento);
+		}
+		return 0;
 	}
 
 	private boolean existe(String produto, Orcamento orcamento) {
@@ -24,5 +27,10 @@ public class DescontoPorVendaCasada implements Desconto {
 	@Override
 	public void setProximoDesconto(Desconto desconto) {
 		this.proximoDesconto = desconto;
+	}
+
+	@Override
+	public boolean hasProximoDesconto() {
+		return this.proximoDesconto != null;
 	}
 }

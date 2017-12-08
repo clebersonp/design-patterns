@@ -11,13 +11,19 @@ public class DescontoParaMaisDeCincoItens implements Desconto {
 		if (orcamento.getItens().size() > 5) {
 			return orcamento.getValor() * 0.1;
 		}
-		return this.proximoDesconto.calcula(orcamento);
+		if (hasProximoDesconto()) {
+			return this.proximoDesconto.calcula(orcamento);
+		}
+		return 0;
 	}
 
 	@Override
 	public void setProximoDesconto(Desconto desconto) {
 		this.proximoDesconto = desconto;
-		
 	}
 
+	@Override
+	public boolean hasProximoDesconto() {
+		return this.proximoDesconto != null;
+	}
 }
