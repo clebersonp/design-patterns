@@ -12,7 +12,7 @@ public class Orcamento {
 		this.itens = new ArrayList<>();
 	}
 	
-	public Orcamento(List<Item> itens) {
+	public Orcamento(final List<Item> itens) {
 		this.itens = itens;
 	}
 	
@@ -24,7 +24,7 @@ public class Orcamento {
 		return valor;
 	}
 	
-	public void adicionaItem(Item item) {
+	public void adicionaItem(final Item item) {
 		this.itens.add(item);
 	}
 	
