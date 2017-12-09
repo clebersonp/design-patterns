@@ -18,10 +18,15 @@ public class RespostaCSV implements Resposta {
 	public void responde(Requisicao requisicao, Conta conta) {
 		if (Formato.CSV.equals(requisicao.getFormato())) {
 			System.out.println(conta.getTitular() + ";" + conta.getSaldo());
-		} else if (this.proximaResposta != null) {
+		} else if (this.hasProximaResposta()) {
 			this.proximaResposta.responde(requisicao, conta);
 		} else {
-			throw new FormatoNaoEncontradoException("Formato de resposta não encontrado");
+			throw new FormatoNaoEncontradoException("Formato de resposta nao encontrado");
 		}
+	}
+
+	@Override
+	public boolean hasProximaResposta() {
+		return this.proximaResposta != null;
 	}
 }
