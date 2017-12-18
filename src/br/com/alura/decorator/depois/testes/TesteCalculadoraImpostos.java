@@ -15,6 +15,8 @@ public class TesteCalculadoraImpostos {
 		
 		// Padrao Decorator permite decorar as classes, agrupando funcionalidades antes separadas
 		// Ou seja, comportamentos compostos
+		// Posso criar um novo tipo de tributo, que na verdade, e um conjunto dos tributos ja existentes,
+		// calculando o tributo em cadeia(grupo)
 		Imposto issComICMS = new ISS(new ICMS());
 		Imposto icmsComConfinsComIPI = new ICMS(new Confins(new IPI()));
 		Imposto ipiComISS = new IPI(new ISS());
