@@ -9,6 +9,7 @@ import br.com.alura.decorator.depois.business.IPI;
 import br.com.alura.decorator.depois.business.IPVA;
 import br.com.alura.decorator.depois.business.ISS;
 import br.com.alura.decorator.depois.business.Imposto;
+import br.com.alura.decorator.depois.business.ImpostoDecoratorComTemplate;
 import br.com.alura.decorator.depois.business.ImpostoMuitoAlto;
 import br.com.alura.decorator.depois.modelo.Orcamento;
 
@@ -31,6 +32,7 @@ public class TesteCalculadoraImpostos {
 		
 		Imposto impostoMuitoAlto = new ImpostoMuitoAlto(new Confins());
 		Imposto icppComIkcv = new ICPP(new IKCV());
+		Imposto decoratorComTemplateComISS = new ImpostoDecoratorComTemplate(new ISS());
 		
 		double resultadoISSComICMS = issComICMS.calcula(orcamento);
 		System.out.println(resultadoISSComICMS);
@@ -53,6 +55,9 @@ public class TesteCalculadoraImpostos {
 		double resultadoIcppComIkcv = icppComIkcv.calcula(orcamento);
 		System.out.println(resultadoIcppComIkcv);
 		
+		double resultadoDecoratorComTemplaComISS = decoratorComTemplateComISS.calcula(orcamento);
+		System.out.println(resultadoDecoratorComTemplaComISS);
+		
 		// Poderia utilizar o padrao strategy aqui tbm
 		CalculadoraDeImpostos calculadora = new CalculadoraDeImpostos();
 		System.out.println("\nPadrao Decorator utilizando em conjunto com o padrao strategy");
@@ -63,6 +68,7 @@ public class TesteCalculadoraImpostos {
 		System.out.println(calculadora.realizaCalculo(orcamento, ipvaComIPI));
 		System.out.println(calculadora.realizaCalculo(orcamento, impostoMuitoAlto));
 		System.out.println(calculadora.realizaCalculo(orcamento, icppComIkcv));
+		System.out.println(calculadora.realizaCalculo(orcamento, decoratorComTemplateComISS));
 	}
 	
 }
