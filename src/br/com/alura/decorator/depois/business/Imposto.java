@@ -5,9 +5,11 @@ import br.com.alura.decorator.depois.modelo.Orcamento;
 
 public abstract class Imposto {
 
-	protected Imposto proximoImposto;
+	protected final Imposto proximoImposto;
 	
-	public Imposto() {}
+	public Imposto() {
+	    this.proximoImposto = null;
+	}
 	
 	// se quiser utilizar composicao de impostos utilizando o padrao Decorator
 	// Estou decorando a classe, e juntando varios comportamentos antes distintos em uma so classe

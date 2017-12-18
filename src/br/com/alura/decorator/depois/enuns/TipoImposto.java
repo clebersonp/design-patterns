@@ -5,6 +5,7 @@ public enum TipoImposto {
 	ISS,
 	ICMS,
 	IPI, 
-	CONFINS, 
-	IPVA;
+	CONFINS,
+	IMPOSTO_MUITO_ALTO,
+	IPVA, ICPP, IKCV;
 }

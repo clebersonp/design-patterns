@@ -3,10 +3,13 @@ package br.com.alura.decorator.depois.testes;
 import br.com.alura.decorator.depois.business.CalculadoraDeImpostos;
 import br.com.alura.decorator.depois.business.Confins;
 import br.com.alura.decorator.depois.business.ICMS;
+import br.com.alura.decorator.depois.business.ICPP;
+import br.com.alura.decorator.depois.business.IKCV;
 import br.com.alura.decorator.depois.business.IPI;
 import br.com.alura.decorator.depois.business.IPVA;
 import br.com.alura.decorator.depois.business.ISS;
 import br.com.alura.decorator.depois.business.Imposto;
+import br.com.alura.decorator.depois.business.ImpostoMuitoAlto;
 import br.com.alura.decorator.depois.modelo.Orcamento;
 
 public class TesteCalculadoraImpostos {
@@ -26,6 +29,8 @@ public class TesteCalculadoraImpostos {
 		Imposto confinsComICMS = new Confins(new ICMS());
 		Imposto ipvaComIPI = new IPVA(new IPI());
 		
+		Imposto impostoMuitoAlto = new ImpostoMuitoAlto(new Confins());
+		Imposto icppComIkcv = new ICPP(new IKCV());
 		
 		double resultadoISSComICMS = issComICMS.calcula(orcamento);
 		System.out.println(resultadoISSComICMS);
@@ -42,6 +47,12 @@ public class TesteCalculadoraImpostos {
 		double resultadoIpvaComIPI = ipvaComIPI.calcula(orcamento);
 		System.out.println(resultadoIpvaComIPI);
 		
+		double resultadoImpostoMuitoAlto = impostoMuitoAlto.calcula(orcamento);
+		System.out.println(resultadoImpostoMuitoAlto);
+		
+		double resultadoIcppComIkcv = icppComIkcv.calcula(orcamento);
+		System.out.println(resultadoIcppComIkcv);
+		
 		// Poderia utilizar o padrao strategy aqui tbm
 		CalculadoraDeImpostos calculadora = new CalculadoraDeImpostos();
 		System.out.println("\nPadrao Decorator utilizando em conjunto com o padrao strategy");
@@ -50,6 +61,8 @@ public class TesteCalculadoraImpostos {
 		System.out.println(calculadora.realizaCalculo(orcamento, ipiComISS));
 		System.out.println(calculadora.realizaCalculo(orcamento, confinsComICMS));
 		System.out.println(calculadora.realizaCalculo(orcamento, ipvaComIPI));
+		System.out.println(calculadora.realizaCalculo(orcamento, impostoMuitoAlto));
+		System.out.println(calculadora.realizaCalculo(orcamento, icppComIkcv));
 	}
 	
 }
