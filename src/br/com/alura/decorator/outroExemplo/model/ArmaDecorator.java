@@ -16,8 +16,6 @@ public abstract class ArmaDecorator implements Arma {
     public void montar() {
         if (this.arma != null) {
             this.arma.montar();
-        } else {
-            System.out.println("Montagem arma finalizada!");
         }
     }
     
