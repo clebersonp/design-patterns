@@ -6,4 +6,9 @@ public class ArmaBase implements Arma {
     public void montar() {
         System.out.println("Montar uma arma base!");
     }
+
+    @Override
+    public int getQuantidadeDeItens() {
+        return 0;
+    }
 }
