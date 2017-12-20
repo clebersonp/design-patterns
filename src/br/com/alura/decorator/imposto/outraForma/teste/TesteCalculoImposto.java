@@ -1,4 +1,11 @@
-package br.com.alura.decorator.imposto.outraForma.model;
+package br.com.alura.decorator.imposto.outraForma.teste;
+
+import br.com.alura.decorator.imposto.outraForma.model.GGP;
+import br.com.alura.decorator.imposto.outraForma.model.ICQP;
+import br.com.alura.decorator.imposto.outraForma.model.IEFP;
+import br.com.alura.decorator.imposto.outraForma.model.Imposto;
+import br.com.alura.decorator.imposto.outraForma.model.MCSM;
+import br.com.alura.decorator.imposto.outraForma.model.Orcamento;
 
 public class TesteCalculoImposto {
 
