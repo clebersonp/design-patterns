@@ -5,6 +5,17 @@ Definicao:
 pelas subclasses;
 - Portanto, o padrao Template Method basicamente oferece um metodo que define um algoritmo (uma sequencia de passos) que pode, por sua vez, ser definido como abstrato para posteriormente ser implementado por uma subclasse. Pode-se notar que a estrutura do algoritmo fica inalterada mesmo com as subclasses fazendo parte da implementacao.
 
+- Propósito
+	- Esqueleto de um algoritmo em uma operacao
+	- Delega alguns passos as subclasses
+	- Redefinicao de alguns passos de um algoritmo sem alterar a estrutura do algoritmo
+- Aplicabilidade
+	- Implementar partes invariantes de um algoritmo
+	- Deixar as subclasses implementar as partes que variam
+	- Comportamento comum entre subclasses deve ser fatorado e agrupado em uma classe comum
+	- Evitar replicacao de codigo
+	- Controlar extensoes das subclasses
+
 Motivacao:
 - Imagine criar os mesmos metodos para cada classe concreta, estariamos duplicando codigo;
 - Criar varias classe com metodos com estruturas semelhantes, mas sem utilizar o polimorfismo. 
