@@ -3,7 +3,7 @@ package br.com.alura.decorator.outroExemplo.model;
 public abstract class ArmaDecorator implements Arma {
 
     private Arma arma;
-    private static int quantidadeDeItens = 1;
+    protected static int quantidadeDeItens = 0;
     
     public ArmaDecorator(Arma arma) {
         if (arma != null) {

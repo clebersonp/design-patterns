@@ -4,11 +4,11 @@ public class ArmaBase implements Arma {
 
     @Override
     public void montar() {
-        System.out.println("Montar uma arma base!");
+        System.out.println("Arma base montada com os acessorios escolhidos!");
     }
 
     @Override
     public int getQuantidadeDeItens() {
-        return 0;
+        return ArmaDecorator.quantidadeDeItens;
     }
 }
